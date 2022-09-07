@@ -29,11 +29,11 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
-            'personal_number' => $input['personal_number'],
-            'last_name' => $input['last_name'],
-            'first_name' => $input['first_name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
+            'personal_number'   => $input['personal_number'],
+            'last_name'         => $input['last_name'],
+            'first_name'        => $input['first_name'],
+            'email'             => $input['email'],
+            'password'          => Hash::make($input['password']),
         ]);
     }
 }
