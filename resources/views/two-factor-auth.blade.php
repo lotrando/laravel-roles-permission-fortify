@@ -61,6 +61,12 @@
                   </code>
                 </div>
               </div>
+              <form method="POST" action="{{ url('user/confirmed-two-factor-authentication') }}">
+                @csrf
+                <button type="submit" class="btn btn-success">
+                  {{ __('Confirm') }}
+                </button>
+              </form>
             @endif
           </div>
         </div>
