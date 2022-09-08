@@ -1,17 +1,19 @@
 @extends('layout.app')
 
-@section('title', 'Fortify - Login')
+@section('title', 'Fortify - Forgot password')
 
 @section('content')
   <section class="vh-100 gradient-custom">
     <div class="h-100 container py-5">
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-10 col-lg-8 col-xl-6">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card card-registration shadow" style="border-radius: 5px;">
+            <div class="card-header">
+              <h2 class="text-center">Forgot Password</h2>
+            </div>
             <div class="card-body p-md-5 p-4">
-              <h2 class="pb-md-0 mb-md-5 mb-2 pb-2 text-center">Forgot Password</h2>
               @if (session('status'))
-                <div class="alert alert-succes" role="alert">
+                <div class="alert alert-success" role="alert">
                   {{ session('status') }}
                 </div>
               @endif

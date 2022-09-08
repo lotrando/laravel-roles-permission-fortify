@@ -7,9 +7,11 @@
     <div class="h-100 container py-5">
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-10 col-lg-8 col-xl-6">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card card-registration shadow" style="border-radius: 5px;">
+            <div class="card-header">
+              <h2 class="text-center">Register</h2>
+            </div>
             <div class="card-body p-md-5 p-4">
-              <h2 class="pb-md-0 mb-md-5 mb-2 pb-2 text-center">Registration Form</h2>
               <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="row">
