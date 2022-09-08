@@ -17,15 +17,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'personal_number' => '11111',
+            'personal_number' => '12345',
             'title' =>  null,
-            'last_name' => 'Admin',
-            'first_name' => 'Administrator',
+            'last_name' => 'Testing',
+            'first_name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => Hash::make('admin'),
             'remember_token' => Str::random(15),
         ]);
 
-        User::factory(50)->create();
+        //User::factory(50)->create();
     }
 }
