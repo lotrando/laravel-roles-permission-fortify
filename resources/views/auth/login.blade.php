@@ -5,7 +5,7 @@
 @section('content')
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-6 col-xl-4">
+      <div class="col-sm-8 col-lg-6 col-xl-4">
         <div class="card shadow">
           <div class="card-header">{{ __('Login') }}</div>
 
@@ -59,7 +59,7 @@
 
                   @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.email') }}">
-                      {{ __('Forgot Your Password?') }}
+                      {{ __('Forgot Your Password ?') }}
                     </a>
                   @endif
                 </div>
