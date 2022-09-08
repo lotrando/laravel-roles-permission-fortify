@@ -44,6 +44,7 @@
                 <div class="mt-4 pt-2">
                   <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-lg btn-primary">Login</button>
+                    <a href="{{ route('password.request') }}">Forgot password ?</a>
                   </div>
                 </div>
 
