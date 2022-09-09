@@ -3,7 +3,7 @@
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-12">
+      <div class="col-sm-10 col-lg-8 col-xl-6">
         <div class="card shadow">
           <div class="card-header">{{ __('Welcome') }}</div>
 
