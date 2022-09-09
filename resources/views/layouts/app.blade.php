@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg">
+  <nav class="navbar navbar-expand-md navbar-light mb-5 bg-white shadow">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ url('/home') }}">
         {{ config('app.name', 'Laravel') }}
@@ -45,8 +45,8 @@
             @endif
           @else
             <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false" v-pre>
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->last_name . ' ' . Auth::user()->first_name }}
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

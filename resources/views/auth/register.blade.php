@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-sm-12 col-lg-8 col-xl-6">
         <div class="card shadow">
-          <div class="card-header">{{ __('Register') }}</div>
+          <div class="card card-header bg-secondary text-white">{{ __('Register') }}</div>
 
           <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
@@ -16,7 +16,8 @@
               <div class="row mb-3">
                 <div class="col-6">
                   <label for="personal_number" class="form-label">{{ __('Personal number') }}</label>
-                  <input id="personal_number" type="text" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number"
+                  <input id="personal_number" type="text"
+                    class="form-control @error('personal_number') is-invalid @enderror" name="personal_number"
                     value="{{ old('personal_number') }}" autofocus>
 
                   @error('personal_number')
@@ -27,8 +28,8 @@
                 </div>
                 <div class="col-6">
                   <label for="title" class="form-label">{{ __('Title') }}</label>
-                  <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                    value="{{ old('title') }}">
+                  <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
+                    name="title" value="{{ old('title') }}">
 
                   @error('title')
                     <span class="invalid-feedback" role="alert">
@@ -41,8 +42,8 @@
               <div class="row mb-3">
                 <div class="col-6">
                   <label for="last_name" class="form-label">{{ __('Last Name') }}</label>
-                  <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name"
-                    value="{{ old('last_name') }}">
+                  <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror"
+                    name="last_name" value="{{ old('last_name') }}">
 
                   @error('last_name')
                     <span class="invalid-feedback" role="alert">
@@ -52,8 +53,8 @@
                 </div>
                 <div class="col-6">
                   <label for="first_name" class="form-label">{{ __('First Name') }}</label>
-                  <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                    value="{{ old('first_name') }}">
+                  <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror"
+                    name="first_name" value="{{ old('first_name') }}">
 
                   @error('first_name')
                     <span class="invalid-feedback" role="alert">
@@ -66,8 +67,8 @@
               <div class="row mb-2">
                 <div class="col-md-12">
                   <label for="email" class="form-label">{{ __('Email Address') }}</label>
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                    value="{{ old('email') }}">
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                    name="email" value="{{ old('email') }}">
 
                   @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -80,7 +81,8 @@
               <div class="row mb-4">
                 <div class="col-md-6">
                   <label for="password" class="form-label">{{ __('Password') }}</label>
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                    name="password">
 
                   @error('password')
                     <span class="invalid-feedback" role="alert">

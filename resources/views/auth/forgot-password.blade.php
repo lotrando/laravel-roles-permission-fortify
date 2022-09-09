@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card shadow">
-          <div class="card-header">{{ __('Forgot password') }}</div>
+          <div class="card card-header bg-secondary text-white">{{ __('Forgot password') }}</div>
 
           <div class="card-body">
             @if (session('status'))
