@@ -15,8 +15,3 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/scss/app.scss', 'public/css',)
    .disableNotifications();
-
-/* MDB Free */
-//  mix.js('resources/mdb/js/mdb.free.js', 'public/mdb/js')
-//     .sass('resources/mdb/scss/mdb.free.scss', 'public/mdb/css')
-//     .disableNotifications();
