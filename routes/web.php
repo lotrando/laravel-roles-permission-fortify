@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome');
 
 Route::middleware(['auth', "verified"])->group(function () {
-    Route::view('two-factor-auth', 'two-factor-auth')->name('two-factor-auth');
+    Route::view('two-factor-auth', 'auth.two-factor-auth')->name('two-factor-auth');
+    Route::view('user/password-change', 'auth.password-change')->name('password.change');
     Route::view('test', 'test')->name('test');
     Route::view('home', 'home')->name('home');
 });

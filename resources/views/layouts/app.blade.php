@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-  <title>@yield('title')</title>
+  <title>{{ $title }}</title>
   <script src="{{ asset('js/app.js') }}" defer></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-light mb-5 bg-white shadow">
+  <nav class="navbar navbar-expand-md navbar-light bg-white shadow">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url('/home') }}">
+      <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -23,14 +23,14 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left Side Of Navbar -->
+        {{-- Left Side Of Navbar --}}
         <ul class="navbar-nav me-auto">
 
         </ul>
 
-        <!-- Right Side Of Navbar -->
+        {{-- Right Side Of Navbar --}}
         <ul class="navbar-nav ms-auto">
-          <!-- Authentication Links -->
+          {{-- Authentication Links --}}
           @guest
             @if (Route::has('login'))
               <li class="nav-item">
@@ -45,15 +45,21 @@
             @endif
           @else
             <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
                 {{ Auth::user()->last_name . ' ' . Auth::user()->first_name }}
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <!-- Button trigger modal -->
+                {{-- Button trigger modal --}}
                 <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logout">
                   {{ __('Logout') }}
                 </button>
+                <a href="#" class="dropdown-item">
+                  {{ __('Profile') }}
+                </a>
+                <a href="{{ route('password.change') }}" class="dropdown-item">
+                  {{ __('Change password') }}
+                </a>
                 <a href="{{ route('two-factor-auth') }}" class="dropdown-item">
                   {{ __('Two Factor Auth') }}
                 </a>
@@ -66,7 +72,20 @@
   </nav>
 
   <main class="py-4">
-    @yield('content')
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-10 col-md-8 col-lg-6">
+          <div class="card mt-3 shadow">
+            <div class="card card-header bg-secondary text-white">
+              {{ $cardName }}
+            </div>
+            <div class="card-body">
+              @yield('content')
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   {{-- Logout Modal --}}
@@ -74,14 +93,14 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Logout</h5>
+          <h5 class="modal-title">{{ __('Logout') }}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p class="text-center">Are you sure ?</p>
+          <p class="text-center">{{ __('Are you sure ?') }}</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
           <a role="button" class="btn btn-danger" href="{{ route('logout') }}"
             onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">

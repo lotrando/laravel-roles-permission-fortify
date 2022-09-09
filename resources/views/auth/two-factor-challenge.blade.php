@@ -5,7 +5,7 @@
 @section('content')
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-lg-6 col-xl-4">
+      <div class="col-sm-9 col-lg-6 col-xl-4">
         <div class="card shadow">
           <div class="card-header">{{ __('Two Factor Challenge') }}</div>
           <div class="card-body">

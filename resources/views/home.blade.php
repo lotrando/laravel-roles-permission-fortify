@@ -1,17 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => 'Home', 'cardName' => __('Home')])
 
 @section('content')
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <div class="card shadow">
-          <div class="card-header">{{ __('Home') }}</div>
-
-          <div class="card-body">
-            You are verified and loged in!
-          </div>
-        </div>
-      </div>
+  @if (session('status'))
+    <div class="alert alert-success" role="alert">
+      {{ session('status') }}
     </div>
-  </div>
+  @endif
+  You are verified and loged in!
 @endsection
