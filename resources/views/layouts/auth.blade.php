@@ -73,7 +73,7 @@
   <main class="py-4">
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-10 col-md-8 col-lg-6">
+        <div class="col-10 col-md-8 col-lg-3">
           <div class="card mt-3 shadow">
             <div class="card card-header bg-secondary text-white">
               {{ $cardName }}

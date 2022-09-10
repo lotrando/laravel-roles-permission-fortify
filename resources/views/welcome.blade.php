@@ -1,5 +1,5 @@
-@extends('layouts.app', ['title' => 'Change Password', 'cardName' => __('Welcome Page')])
+@extends('layouts.app', ['title' => __('Welcome'), 'cardName' => __('Welcome')])
 
 @section('content')
-  Welcome to Laravel Fortify starter kit by Lotrando
+  {{ __('Welcome to Laravel Fortify starter kit') }}
 @endsection

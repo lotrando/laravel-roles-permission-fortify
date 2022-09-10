@@ -123,5 +123,7 @@
 	"Title": "Titul",
 	"If you're having trouble clicking the button, copy and paste the URL below into your web browser:": "ve vašem prohlížeči",
 	"Change": "Změnit",
-	"Update": "Upravit"
+	"Update": "Upravit",
+	"Welcome": "Vítejte",
+	"Welcome to Laravel Fortify starter kit": "Vítejte ve startovací sadě Laravel Fortify"
 }
