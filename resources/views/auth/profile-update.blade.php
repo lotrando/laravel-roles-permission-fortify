@@ -60,7 +60,7 @@
     <div class="row mb-4">
       <div class="col-md-12">
         <label for="email" class="form-label">{{ __('Email Address') }} -
-          <span class="text-danger"> {{ __('If you change your email address, you will need to re-verify the new email address.') }}</p>
+          <span class="text-danger"> {{ __('Changing your address will require you to re-verify your new address!') }}</p>
           </span>
         </label>
         <input id="email" type="email" class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror" name="email"

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', Auth::user()->locale ?? app()->getLocale()) }}">
 
 <head>
   <meta charset="utf-8">
@@ -7,8 +7,9 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
   <title>{{ $title }}</title>
-  <script src="{{ asset('js/app.js') }}" defer></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/particles.js') }}"></script>
 </head>
 
 <body>
@@ -73,7 +74,7 @@
   <main class="py-4">
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-10 col-md-8 col-lg-3">
+        <div class="col-10 col-md-8 col-lg-5">
           <div class="card mt-3 shadow">
             <div class="card card-header bg-secondary text-white">
               {{ $cardName }}

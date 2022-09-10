@@ -6,5 +6,5 @@
       {{ session('status') }}
     </div>
   @endif
-  You are verified and loged in!
+  {{ __('You are verified and loged in!') }}
 @endsection

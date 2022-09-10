@@ -119,7 +119,7 @@
 	"Password reset": "Obnovení hesla",
 	"Change profile": "Úprava profilu",
 	"Profile information updated": "Profilové informace aktualizovány",
-	"If you change your email address, you will need to re-verify the new email address.": "Pokud změníte emailovou adresu budete muset provést opětovné ověření nové emailové adresy.",
+	"Changing your address will require you to re-verify your new address!": "Změnou adresy budete muset provést opětovné ověření nové adresy!",
 	"Title": "Titul",
 	"If you're having trouble clicking the button, copy and paste the URL below into your web browser:": "ve vašem prohlížeči",
 	"Change": "Změnit",
