@@ -78,9 +78,6 @@
         <button type="submit" class="btn btn-primary">
           {{ __('Update') }}
         </button>
-        <a href="{{ url()->previous() }}" class="btn btn-secondary">
-          {{ __('Back') }}
-        </a>
       </div>
     </div>
   </form>
