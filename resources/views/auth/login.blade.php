@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Login', 'cardName' => __('Login')])
+@extends('layouts.auth', ['title' => 'Login', 'cardName' => __('Login')])
 
 @section('title', 'Login')
 
@@ -9,8 +9,8 @@
     <div class="row mb-3">
       <div class="col-12">
         <label for="personal_number" class="form-label">{{ __('Personal number') }}</label>
-        <input id="personal_number" type="personal_number" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number"
-          value="{{ old('personal_number') }}" autofocus>
+        <input id="personal_number" type="personal_number" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number" value="{{ old('personal_number') }}"
+          autofocus>
 
         @error('personal_number')
           <span class="invalid-feedback" role="alert">

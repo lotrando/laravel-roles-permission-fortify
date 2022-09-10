@@ -17,7 +17,8 @@ Route::view('/', 'welcome');
 
 Route::middleware(['auth', "verified"])->group(function () {
     Route::view('two-factor-auth', 'auth.two-factor-auth')->name('two-factor-auth');
-    Route::view('user/password-change', 'auth.password-change')->name('password.change');
+    Route::view('profile/update', 'auth.profile-update')->name('profile.update');;
+    Route::view('password/update', 'auth.password-update')->name('passwords.update');
     Route::view('test', 'test')->name('test');
     Route::view('home', 'home')->name('home');
 });

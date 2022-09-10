@@ -128,7 +128,8 @@ return [
         'first_name' => 'jméno',
         'title' => 'titul',
         'email' => 'pole e-mailová adresa',
-        'password' => 'pole heslo',
+        'current_password' => 'původní heslo',
+        'password' => 'heslo',
         'name' => 'pole název rezervace',
         'department_id' => 'pole oddělení',
         'date_start' => 'pole Od',
@@ -137,9 +138,9 @@ return [
         'rooms' => 'pole místnosti'
     ],
     'values' => [
-    'after_or_equal' => [
-        // or tomorrow
-        'today' => 'dnešní'
+        'after_or_equal' => [
+            // or tomorrow
+            'today' => 'dnešní'
+        ]
     ]
-]
 ];

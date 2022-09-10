@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Password reset', 'cardName' => __('Password reset')])
+@extends('layouts.auth', ['title' => 'Password reset', 'cardName' => __('Password reset')])
 
 @section('content')
   @if (session('status'))
@@ -27,8 +27,7 @@
     <div class="row mb-3">
       <div class="col-12">
         <label for="password" class="form-label">{{ __('Password') }}</label>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required
-          autocomplete="new-password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
         @error('password')
           <span class="invalid-feedback" role="alert">

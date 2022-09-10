@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Verify Email', 'cardName' => __('Verify Your Email Address')])
+@extends('auth.app', ['title' => 'Verify Email', 'cardName' => __('Verify Your Email Address')])
 
 @section('content')
   @if (session('status'))

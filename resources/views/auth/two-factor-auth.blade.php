@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Change Password', 'cardName' => __('Two Factor Authentication activation')])
+@extends('layouts.auth', ['title' => 'Change Password', 'cardName' => __('Two Factor Authentication activation')])
 
 @section('title', 'Two Factor Authentication activation')
 
@@ -9,11 +9,9 @@
     </div>
     <form method="POST" action="{{ url('user/two-factor-authentication') }}">
       @csrf
-      <div class="d-grid">
-        <button type="submit" class="btn btn-success">
-          {{ __('Enable') }}
-        </button>
-      </div>
+      <button type="submit" class="btn btn-success">
+        {{ __('Enable') }}
+      </button>
     </form>
   @else
     <div class="alert alert-success" role="alert">
@@ -22,11 +20,9 @@
     <form method="POST" action="{{ url('/user/two-factor-authentication') }}">
       @csrf
       @method('DELETE')
-      <div class="d-grid">
-        <button type="submit" class="btn btn-danger mb-2">
-          {{ __('Disable') }}
-        </button>
-      </div>
+      <button type="submit" class="btn btn-danger">
+        {{ __('Disable') }}
+      </button>
     </form>
   @endif
 

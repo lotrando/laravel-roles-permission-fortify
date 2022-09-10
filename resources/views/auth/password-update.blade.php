@@ -1,20 +1,20 @@
-@extends('layouts.app', ['title' => 'Change Password', 'cardName' => __('Change password')])
+@extends('layouts.auth', ['title' => 'Change Password', 'cardName' => __('Change password')])
 
 @section('content')
-  @if (session('status'))
+  @if (session('status') == 'password-updated')
     <div class="alert alert-success" role="alert">
-      {{ session('status') }}
+      {{ __('Password Updated') }}
     </div>
   @endif
-  <form method="POST" action="{{ url('user/password') }}">
+  <form method="POST" action="{{ route('user-password.update') }}">
     @method('PUT')
     @csrf
     <div class="row mb-4">
       <div class="col-md-12">
         <label for="password" class="form-label">{{ __('Old Password') }}</label>
-        <input id="old_password" type="password" class="form-control @error('old_password') is-invalid @enderror" name="old_password">
+        <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" autofocus>
 
-        @error('old_password')
+        @error('current_password')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -42,6 +42,9 @@
         <button type="submit" class="btn btn-primary">
           {{ __('Change') }}
         </button>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary">
+          {{ __('Back') }}
+        </a>
       </div>
     </div>
   </form>

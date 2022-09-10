@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Forgot password', 'cardName' => __('Forgot password')])
+@extends('layouts.auth', ['title' => 'Forgot password', 'cardName' => __('Forgot password')])
 
 @section('content')
   @if (session('status'))

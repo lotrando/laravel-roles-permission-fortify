@@ -1,16 +1,15 @@
-@extends('layouts.app', ['title' => 'Register', 'cardName' => __('Register')])
+@extends('layouts.auth', ['title' => 'Register', 'cardName' => __('Register')])
 
 @section('content')
   <form method="POST" action="{{ route('register') }}">
     @csrf
-
     <div class="row mb-3">
       <div class="col-6">
         <label for="personal_number" class="form-label">
           {{ __('Personal number') }}
         </label>
-        <input id="personal_number" type="text" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number"
-          value="{{ old('personal_number') }}" autofocus>
+        <input id="personal_number" type="text" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number" value="{{ old('personal_number') }}"
+          autofocus>
         @error('personal_number')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -32,8 +31,7 @@
     <div class="row mb-3">
       <div class="col-6">
         <label for="last_name" class="form-label">{{ __('Last Name') }}</label>
-        <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name"
-          value="{{ old('last_name') }}">
+        <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}">
 
         @error('last_name')
           <span class="invalid-feedback" role="alert">
@@ -43,8 +41,7 @@
       </div>
       <div class="col-6">
         <label for="first_name" class="form-label">{{ __('First Name') }}</label>
-        <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-          value="{{ old('first_name') }}">
+        <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}">
 
         @error('first_name')
           <span class="invalid-feedback" role="alert">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('auth.app', ['title' => 'Two Factor Challenge', 'cardName' => __('Two Factor Challenge')])
 
 @section('title', 'Two Factor Challenge')
 
