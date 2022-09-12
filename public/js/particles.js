@@ -41,7 +41,7 @@ if (!isMobileDevice()) {
         var minSize = 2.5;
         var maxSize = 6.0;
         var alphaFactor = 0.2;
-        var spawnFactor = 5;
+        var spawnFactor = 2;
         var dissolveFactor = 0.009;
 
         var starProb = 0.0;
