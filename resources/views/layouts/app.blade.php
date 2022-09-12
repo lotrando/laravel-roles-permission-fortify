@@ -17,8 +17,8 @@
       <a class="navbar-brand" href="{{ url('/') }}">
         {{ config('app.name', 'Laravel') }}
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="{{ __('Toggle navigation') }}">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -45,8 +45,9 @@
             @endif
           @else
             <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ Auth::user()->last_name . ' ' . Auth::user()->first_name }}
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->pernum . ' - ' . Auth::user()->user_name }}
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 {{-- Button trigger modal --}}
@@ -100,7 +101,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close') }}</button>
-          <a role="button" class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
+          <a role="button" class="btn btn-danger" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
             {{ __('Logout') }}
           </a>

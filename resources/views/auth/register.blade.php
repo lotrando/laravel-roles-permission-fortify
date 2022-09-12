@@ -7,13 +7,13 @@
     <div class="row mb-3">
       <div class="col-6">
 
-        <label for="personal_number" class="form-label">
+        <label for="pernum" class="form-label">
           {{ __('Personal number') }}
         </label>
-        <input id="personal_number" type="text" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number" value="{{ old('personal_number') }}"
-          autofocus>
+        <input id="pernum" type="text" class="form-control @error('pernum') is-invalid @enderror" name="pernum"
+          value="{{ old('pernum') }}" autofocus>
 
-        @error('personal_number')
+        @error('pernum')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -22,43 +22,13 @@
       </div>
       <div class="col-6">
 
-        <label for="title" class="form-label">
-          {{ __('Title') }}
+        <label for="user_name" class="form-label">
+          {{ __('Last Name') }} {{ __('First Name') }}
         </label>
-        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}">
+        <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror"
+          name="user_name" value="{{ old('user_name') }}">
 
-        @error('title')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-        @enderror
-
-      </div>
-    </div>
-
-    <div class="row mb-3">
-      <div class="col-6">
-
-        <label for="last_name" class="form-label">
-          {{ __('Last Name') }}
-        </label>
-        <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}">
-
-        @error('last_name')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-        @enderror
-
-      </div>
-      <div class="col-6">
-
-        <label for="first_name" class="form-label">
-          {{ __('First Name') }}
-        </label>
-        <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}">
-
-        @error('first_name')
+        @error('user_name')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -68,14 +38,30 @@
     </div>
 
     <div class="row mb-2">
-      <div class="col-md-12">
+      <div class="col-md-6">
 
         <label for="email" class="form-label">
           {{ __('Email Address') }}
         </label>
-        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+          value="{{ old('email') }}">
 
         @error('email')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+        @enderror
+
+      </div>
+      <div class="col-md-6">
+
+        <label for="date_birth" class="form-label">
+          {{ __('Birthdate') }}
+        </label>
+        <input id="date_birth" type="text" class="form-control @error('date_birth') is-invalid @enderror"
+          name="date_birth" value="{{ old('date_birth') }}">
+
+        @error('date_birth')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -90,7 +76,8 @@
         <label for="password" class="form-label">
           {{ __('Password') }}
         </label>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+          name="password">
 
         @error('password')
           <span class="invalid-feedback" role="alert">

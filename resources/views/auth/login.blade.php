@@ -10,11 +10,11 @@
     <div class="row mb-3">
       <div class="col-12">
 
-        <label for="personal_number" class="form-label">{{ __('Personal number') }}</label>
-        <input id="personal_number" type="personal_number" class="form-control @error('personal_number') is-invalid @enderror" name="personal_number" value="{{ old('personal_number') }}"
-          autofocus>
+        <label for="pernum" class="form-label">{{ __('Personal number') }}</label>
+        <input id="pernum" type="pernum" class="form-control @error('pernum') is-invalid @enderror" name="pernum"
+          value="{{ old('pernum') }}" autofocus>
 
-        @error('personal_number')
+        @error('pernum')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -27,7 +27,8 @@
       <div class="col-md-12">
 
         <label for="password" class="form-label">{{ __('Password') }}</label>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+          name="password">
 
         @error('password')
           <span class="invalid-feedback" role="alert">
@@ -42,7 +43,8 @@
       <div class="col-12">
         <div class="form-check">
 
-          <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          <input class="form-check-input" type="checkbox" name="remember" id="remember"
+            {{ old('remember') ? 'checked' : '' }}>
           <label class="form-check-label" for="remember">
             {{ __('Remember Me') }}
           </label>

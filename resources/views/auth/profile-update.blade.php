@@ -11,22 +11,24 @@
     @method('PUT')
     <div class="row mb-3">
       <div class="col-6">
-        <label for="personal_number" class="form-label">
+        <label for="pernum" class="form-label">
           {{ __('Personal number') }}
         </label>
-        <input id="personal_number" type="text" class="form-control @error('personal_number', 'updateProfileInformation') is-invalid @enderror" name="personal_number"
-          value="{{ Auth::user()->personal_number, old('personal_number') }}" autofocus>
-        @error('personal_number', 'updateProfileInformation')
+        <input id="pernum" type="text"
+          class="form-control @error('pernum', 'updateProfileInformation') is-invalid @enderror" name="pernum"
+          value="{{ Auth::user()->pernum, old('pernum') }}">
+        @error('pernum', 'updateProfileInformation')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
         @enderror
       </div>
       <div class="col-6">
-        <label for="title" class="form-label">{{ __('Title') }}</label>
-        <input id="title" type="text" class="form-control @error('title', 'updateProfileInformation') is-invalid @enderror" name="title"
-          value="{{ Auth::user()->title, old('title') }}">
-        @error('title', 'updateProfileInformation')
+        <label for="user_name" class="form-label">{{ __('Last Name') }} {{ __('First Name') }}</label>
+        <input id="user_name" type="text"
+          class="form-control @error('user_name', 'updateProfileInformation') is-invalid @enderror" name="user_name"
+          value="{{ Auth::user()->user_name, old('user_name') }}" autofocus>
+        @error('user_name', 'updateProfileInformation')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -35,38 +37,25 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col-6">
-        <label for="last_name" class="form-label">{{ __('Last Name') }}</label>
-        <input id="last_name" type="text" class="form-control @error('last_name', 'updateProfileInformation') is-invalid @enderror" name="last_name"
-          value="{{ Auth::user()->last_name, old('last_name') }}">
-        @error('last_name', 'updateProfileInformation')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-        @enderror
-      </div>
-      <div class="col-6">
-        <label for="first_name" class="form-label">{{ __('First Name') }}</label>
-        <input id="first_name" type="text" class="form-control @error('first_name', 'updateProfileInformation') is-invalid @enderror" name="first_name"
-          value="{{ Auth::user()->first_name, old('first_name') }}">
-        @error('first_name', 'updateProfileInformation')
-          <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-          </span>
-        @enderror
-      </div>
-    </div>
+      <div class="col-md-6">
+        <label for="date_birth" class="form-label">{{ __('Birthdate') }}</label>
+        <input id="date_birth" type="date"
+          class="form-control @error('date_birth', 'updateProfileInformation') is-invalid @enderror" name="date_birth"
+          value="{{ Auth::user()->date_birth, old('date_birth') }}">
 
-    <div class="row mb-4">
-      <div class="col-md-12">
-        <label for="email" class="form-label">{{ __('Email Address') }} -
-          <span class="text-danger"> {{ __('Changing your address will require you to re-verify your new address!') }}</p>
+        @error('date_birth', 'updateProfileInformation')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
           </span>
-        </label>
-        <input id="email" type="email" class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror" name="email"
+        @enderror
+      </div>
+      <div class="col-md-6">
+        <label for="email" class="form-label">{{ __('Email Address') }}</label>
+        <input id="email" type="text"
+          class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror" name="email"
           value="{{ Auth::user()->email, old('email') }}">
 
-        @error('email', 'updateProfileInformation')
+        @error('birth_date', 'updateProfileInformation')
           <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
           </span>
@@ -74,11 +63,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12">
+      <div class="col-4">
         <button type="submit" class="btn btn-primary">
           {{ __('Update') }}
         </button>
       </div>
-    </div>
+      <div class="col-8">
+      </div>
   </form>
 @endsection

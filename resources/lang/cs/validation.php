@@ -123,7 +123,8 @@ return [
         ],
     ],
     'attributes' => [
-        'personal_number' => 'osobní číslo',
+        'pernum' => 'osobní číslo',
+        'user_name' => 'příjmení jméno',
         'last_name' => 'příjmení',
         'first_name' => 'jméno',
         'title' => 'titul',

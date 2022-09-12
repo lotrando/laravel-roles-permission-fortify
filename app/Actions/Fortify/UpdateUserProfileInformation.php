@@ -19,13 +19,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'personal_number'   => ['required', 'string', 'min:5', 'max:5', Rule::unique('users')->ignore($user->id)],
-            'title'             => ['nullable', 'string', 'max:25',],
-            'last_name'         => ['required', 'string', 'max:100'],
-            'first_name'        => ['required', 'string', 'max:100'],
-            'email'             => [
-                'required', 'string', 'email', 'max:100', Rule::unique('users')->ignore($user->id),
-            ],
+            'pernum'            => ['required', 'string', 'min:5', 'max:5', Rule::unique('users')->ignore($user->id)],
+            'user_name'         => ['required', 'string', 'max:100'],
+            'date_birth'        => ['nullable', 'string', 'max:100'],
+            'email'             => ['required', 'string', 'email', 'max:100', Rule::unique('users')->ignore($user->id)],
         ])->validateWithBag('updateProfileInformation');
 
         if (
@@ -35,10 +32,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'personal_number'   => $input['personal_number'],
-                'title'             => $input['title'],
-                'last_name'         => $input['last_name'],
-                'first_name'        => $input['first_name'],
+                'pernum'            => $input['pernum'],
+                'user_name'         => $input['user_name'],
+                'date_birth'        => $input['date_birth'],
                 'email'             => $input['email'],
             ])->save();
         }
@@ -54,10 +50,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser($user, array $input)
     {
         $user->forceFill([
-            'personal_number'   => $input['personal_number'],
-            'title'             => $input['title'],
-            'last_name'         => $input['last_name'],
-            'first_name'        => $input['first_name'],
+            'pernum'            => $input['pernum'],
+            'user_name'         => $input['user_name'],
+            'date_birth'        => $input['date_birth'],
             'email'             => $input['email'],
             'email_verified_at' => null,
         ])->save();
