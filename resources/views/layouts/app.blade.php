@@ -8,24 +8,51 @@
   <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
   <title>{{ $title }}</title>
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/particles.js') }}"></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url('/') }}">
-        {{ config('app.name', 'Laravel') }}
-      </a>
+      <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name', 'Rezervace') }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-        <span class="navbar-toggler-icon"></span>
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        {{-- Left Side Of Navbar --}}
-        <ul class="navbar-nav me-auto">
-
+        <ul class="navbar-nav me-auto mb-lg-0 mb-2">
+          @can('logged-in')
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{{ route('user.reservations.index') }}">
+                {{ __('Paints') }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{{ route('user.bikes.index') }}">
+                {{ __('Bikes') }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page"
+                href="https://docs.google.com/spreadsheets/d/19Tzhxrq7tVBpZ7LhZ5qEL6ehI3om3q6b/edit#gid=1690889270">
+                {{ __('Pneumatiky') }}
+              </a>
+            </li>
+          @endcan
+          @can('is-admin')
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.users.index') }}">
+                {{ __('Users') }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.roles.index') }}">
+                {{ __('Roles') }}
+              </a>
+            </li>
+          @endcan
         </ul>
 
         {{-- Right Side Of Navbar --}}
@@ -34,13 +61,13 @@
           @guest
             @if (Route::has('login'))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a class="nav-link btn btn-outline-primary m-1" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
             @endif
 
             @if (Route::has('register'))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <a class="nav-link btn btn-primary m-1" href="{{ route('register') }}">{{ __('Register') }}</a>
               </li>
             @endif
           @else
@@ -60,9 +87,9 @@
                 <a href="{{ route('passwords.update') }}" class="dropdown-item">
                   {{ __('Change password') }}
                 </a>
-                <a href="{{ route('two-factor-auth') }}" class="dropdown-item">
+                {{-- <a href="{{ route('two-factor-auth') }}" class="dropdown-item">
                   {{ __('Two Factor Auth') }}
-                </a>
+                </a> --}}
               </div>
             </li>
           @endguest
@@ -73,16 +100,9 @@
 
   <main class="py-4">
     <div class="container-fluid">
-      <div class="row justify-content-center">
+      <div class="row d-flex justify-content-center align-items-center gap-3">
         <div class="col-12">
-          <div class="card shadow">
-            <div class="card card-header bg-secondary text-white">
-              {{ $cardName }}
-            </div>
-            <div class="card-body">
-              @yield('content')
-            </div>
-          </div>
+          @yield('content')
         </div>
       </div>
     </div>

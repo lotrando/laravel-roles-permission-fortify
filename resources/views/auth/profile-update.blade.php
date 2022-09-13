@@ -6,6 +6,9 @@
       {{ __('Profile information updated') }}
     </div>
   @endif
+  <div class="alert alert-warning" role="alert">
+    {{ __('Changing your email address will require you to re-verify your new address!') }}
+  </div>
   <form method="POST" action="{{ route('user-profile-information.update') }}">
     @csrf
     @method('PUT')
@@ -37,7 +40,7 @@
     </div>
 
     <div class="row mb-3">
-      <div class="col-md-6">
+      <div class="col-6">
         <label for="date_birth" class="form-label">{{ __('Birthdate') }}</label>
         <input id="date_birth" type="date"
           class="form-control @error('date_birth', 'updateProfileInformation') is-invalid @enderror" name="date_birth"
@@ -49,7 +52,7 @@
           </span>
         @enderror
       </div>
-      <div class="col-md-6">
+      <div class="col-6">
         <label for="email" class="form-label">{{ __('Email Address') }}</label>
         <input id="email" type="text"
           class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror" name="email"
@@ -63,12 +66,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4">
+      <div class="col-10">
         <button type="submit" class="btn btn-primary">
           {{ __('Update') }}
         </button>
-      </div>
-      <div class="col-8">
+        <a href="{{ url()->previous() }}" type="button" class="btn btn-secondary">
+          {{ __('Back') }}
+        </a>
       </div>
   </form>
 @endsection

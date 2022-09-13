@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, TwoFactorAuthenticatable;
 
@@ -21,7 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'pernum',
         'user_name',
-        'birthdate',
+        'date_birth',
         'email',
         'password',
     ];
@@ -44,4 +44,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('j. m. Y', strtotime($value));
+    }
+
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('j. m. Y', strtotime($value));
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
+
+    /**
+     * Chech User sas role
+     */
+    public function hasAnyRole($role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
+    }
 }

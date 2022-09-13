@@ -3,7 +3,7 @@
 @section('content')
   @if (session('status') == 'password-updated')
     <div class="alert alert-success" role="alert">
-      {{ __('Password Updated') }}
+      {{ __('Password changed') }}
     </div>
   @endif
   <form method="POST" action="{{ route('user-password.update') }}">
@@ -12,7 +12,8 @@
     <div class="row mb-4">
       <div class="col-md-12">
         <label for="password" class="form-label">{{ __('Old Password') }}</label>
-        <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror" name="current_password" autofocus>
+        <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror"
+          name="current_password" autofocus>
 
         @error('current_password')
           <span class="invalid-feedback" role="alert">
@@ -24,7 +25,8 @@
     <div class="row mb-4">
       <div class="col-md-6">
         <label for="password" class="form-label">{{ __('New Password') }}</label>
-        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+          name="password">
 
         @error('password')
           <span class="invalid-feedback" role="alert">
@@ -42,6 +44,9 @@
         <button type="submit" class="btn btn-primary">
           {{ __('Change') }}
         </button>
+        <a href="{{ url()->previous() }}" type="button" class="btn btn-secondary">
+          {{ __('Back') }}
+        </a>
       </div>
     </div>
   </form>

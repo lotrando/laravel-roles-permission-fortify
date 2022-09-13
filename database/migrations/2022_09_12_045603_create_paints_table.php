@@ -13,7 +13,7 @@ class CreatePaintsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('paints', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('department_id');
             $table->unsignedBigInteger('user_id');

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePaintRequest extends FormRequest
+class StoreReservationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,8 @@ class UpdatePaintRequest extends FormRequest
         return [
             'department_id' =>  'required',
             'user_id'       =>  'required',
-            'date_start'    =>  'required',
-            'date_end'      =>  'required',
+            'date_start'    =>  'required|date|after_or_equal:today',
+            'date_end'      =>  'required|date|after_or_equal:date_start',
             'rooms'         =>  'required',
             'doors'         =>  'nullable',
             'specials'      =>  'nullable',

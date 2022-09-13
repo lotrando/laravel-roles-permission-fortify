@@ -13,7 +13,7 @@ class StorePaintRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class StorePaintRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'department_id' =>  'required',
+            'user_id'       =>  'required',
+            'date_start'    =>  'required|date|after_or_equal:today',
+            'date_end'      =>  'required|date|after_or_equal:date_start',
+            'rooms'         =>  'required',
+            'doors'         =>  'nullable',
+            'specials'      =>  'nullable',
+            'status'        =>  'required'
         ];
     }
 }
