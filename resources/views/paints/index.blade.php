@@ -1,11 +1,13 @@
+@extends('layouts.app', ['title' => __('Rezervace Malování')])
+
 @section('content')
   <div class="container-fluid d-flex justify-content-center align-items-center mx-auto">
     <div class="col-12">
       @include('partials.alert')
-      <div class="card">
+      <div class="card shadow">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h2 class="mb-0">{{ __('Paint Reservations') }}</h2>
-          <a href="{{ route('paints.create') }}" class="btn btn-success">
+          <a href="{{ route('user.paints.create') }}" class="btn btn-success">
             {{ __('New Reservation') }}
           </a>
         </div>
@@ -27,7 +29,7 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($reservations as $paint)
+              @foreach ($paints as $paint)
                 <tr class="@if ($paint->status === 'Schváleno') table-success @endif">
                   <td class="pt-3" scope="row">
                     {{ $paint->id }}
@@ -54,9 +56,9 @@
                     {{ $paint->status }}
                   </td>
                   <td width="200px" align="right">
-                    <a href="{{ route('paints.show', $paint->id) }}" class="btn btn-secondary"><i
+                    <a href="{{ route('user.paints.show', $paint->id) }}" class="btn btn-secondary"><i
                         class="fa-regular fa-eye"></i></a>
-                    @if ($paint->user_id === Auth::user()->id and $paint->status === 'Vloženo')
+                    @if ($paint->user_id == Auth::user()->id)
                       <a href="{{ route('user.paints.edit', $paint->id) }}" class="btn btn-primary"><i
                           class="fa-solid fa-pen-to-square"></i>
                       </a>
@@ -65,7 +67,7 @@
                       </button>
                     @else
                       @can('is-admin')
-                        <a href="{{ route('paints.edit', $paint->id) }}" class="btn btn-primary"><i
+                        <a href="{{ route('user.paints.edit', $paint->id) }}" class="btn btn-primary"><i
                             class="fa-solid fa-pen-to-square"></i></a>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                           data-bs-target="#delete-modal-{{ $paint->id }}"><i class="fa-solid fa-trash"></i>

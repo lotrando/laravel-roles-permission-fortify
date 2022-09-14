@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BikeController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\FullCalendarController;
 use App\Http\Controllers\PaintController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,7 +33,8 @@ Route::middleware(['auth', "verified"])->group(function () {
 Route::middleware(['auth', "verified"])->prefix('user')->name('user.')->group(function () {
     Route::resource('/paints', PaintController::class);
     Route::resource('/bikes', BikeController::class);
-    Route::get('full-calendar', [FullCalendarController::class, 'index']);
+    Route::get('/departments', [DepartmentController::class, 'index'])->name('departments');
+    Route::get('full-calendar', [FullCalendarController::class, 'index'])->name('full-calendar');
     Route::post('full-calendar/action', [FullCalendarController::class, 'action']);
 });
 
@@ -39,6 +42,4 @@ Route::middleware(['auth', "verified"])->prefix('user')->name('user.')->group(fu
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/roles', RoleController::class);
-    Route::get('/departments', [DepartmentController::class, 'index']);
-
 });

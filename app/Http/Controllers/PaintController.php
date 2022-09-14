@@ -20,14 +20,12 @@ class PaintController extends Controller
      */
     public function index()
     {
-
         $paints = Paint::sortable()
         ->with('user', 'department')
         ->orderBy('created_at', 'asc')
         ->paginate(10);
 
         return view('paints.index', ['paints' => $paints]);
-
     }
 
     /**
@@ -37,13 +35,9 @@ class PaintController extends Controller
      */
     public function create(Request $request)
     {
-        if (Gate::allows('logged-in')) {
-            return view('paints.create', ['departments' => Department::all()]);
-        } else {
-            $request->session()->flash('error', 'Musíte být přihlášen !');
-            return redirect(route('home'));
-        }
+        return view('paints.create', ['departments' => Department::all()]);
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -51,9 +45,8 @@ class PaintController extends Controller
      * @param  \App\Http\Requests\StorepaintRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorepaintRequest $request)
+    public function store(StorePaintRequest $request)
     {
-        if (Gate::allows('logged-in')) {
             $validatedData = $request->validated();
             Paint::create($validatedData);
 
@@ -74,7 +67,6 @@ class PaintController extends Controller
 
             $request->session()->flash('success', 'Rezervace malování úspěšně vytvořena !');
             return redirect(route('user.paints.index'));
-        }
     }
 
 
@@ -86,11 +78,7 @@ class PaintController extends Controller
      */
     public function show(Paint $paint, Request $request)
     {
-        if (!$paint) {
-            $request->session()->flash('error', 'Tato rezervace malování neexistuje !');
-            return redirect(route('user.paints.index'));
-        }
-        return view('user.paints.show', ['paint' => $paint]);
+        return view('paints.show', ['paint' => $paint]);
     }
 
     /**
@@ -110,7 +98,7 @@ class PaintController extends Controller
             $paint = Paint::find($paint->id);
         }
 
-        return view('user.paints.edit', [
+        return view('paints.edit', [
             'departments' => Department::all(),
             'paint' => $paint
         ]);
@@ -123,7 +111,7 @@ class PaintController extends Controller
      * @param  \App\Models\Ppaint  $paint
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatepaintRequest $request, Paint $paint)
+    public function update(UpdatePaintRequest $request, Paint $paint)
     {
 
 		$oldpaint = Paint::find($paint->id);

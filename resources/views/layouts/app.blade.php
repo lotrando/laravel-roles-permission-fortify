@@ -9,6 +9,7 @@
   <title>{{ $title }}</title>
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/particles.js') }}"></script>
+  <link href="{{ asset('fonts/fontawesome/css/all.min.css') }}" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -23,24 +24,22 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-lg-0 mb-2">
-          @can('logged-in')
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ route('user.reservations.index') }}">
-                {{ __('Paints') }}
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ route('user.bikes.index') }}">
-                {{ __('Bikes') }}
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page"
-                href="https://docs.google.com/spreadsheets/d/19Tzhxrq7tVBpZ7LhZ5qEL6ehI3om3q6b/edit#gid=1690889270">
-                {{ __('Pneumatiky') }}
-              </a>
-            </li>
-          @endcan
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{ route('user.paints.index') }}">
+              {{ __('Paints') }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{ route('user.bikes.index') }}">
+              {{ __('Bikes') }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page"
+              href="https://docs.google.com/spreadsheets/d/19Tzhxrq7tVBpZ7LhZ5qEL6ehI3om3q6b/edit#gid=1690889270">
+              {{ __('Pneumatiky') }}
+            </a>
+          </li>
           @can('is-admin')
             <li class="nav-item">
               <a class="nav-link" href="{{ route('admin.users.index') }}">
@@ -100,8 +99,8 @@
 
   <main class="py-4">
     <div class="container-fluid">
-      <div class="row d-flex justify-content-center align-items-center gap-3">
-        <div class="col-12">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-sm-12">
           @yield('content')
         </div>
       </div>
