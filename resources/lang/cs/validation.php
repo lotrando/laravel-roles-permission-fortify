@@ -5,7 +5,7 @@ return [
     'accepted_if'          => 'The :attribute must be accepted when :other is :value.',
     'active_url'           => ':attribute není platnou URL adresou.',
     'after'                => ':attribute musí být datum po :date.',
-    'after_or_equal'       => ':attribute musí být datum :date nebo pozdější.',
+    'after_or_equal'       => ':attribute musí být dnešní datum nebo pozdější.',
     'alpha'                => ':attribute může obsahovat pouze písmena.',
     'alpha_dash'           => ':attribute může obsahovat pouze písmena, číslice, pomlčky a podtržítka. České znaky (á, é, í, ó, ú, ů, ž, š, č, ř, ď, ť, ň) nejsou podporovány.',
     'alpha_num'            => ':attribute může obsahovat pouze písmena a číslice.',
@@ -137,11 +137,5 @@ return [
         'date_end' => 'pole Do',
         'doors' => 'pole dveře',
         'rooms' => 'pole místnosti'
-    ],
-    'values' => [
-        'after_or_equal' => [
-            // or tomorrow
-            'today' => 'dnešní'
-        ]
     ]
 ];

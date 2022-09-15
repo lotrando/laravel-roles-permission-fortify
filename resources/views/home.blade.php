@@ -27,8 +27,9 @@
     </div>
     <div class="col-sm-4 mb-3">
       <div class="card">
-        <a href="{{ route('user.bikes.index') }}"><img alt="Pneumatiky" class="card-img-top"
-            src="{{ asset('img/pneu.jpg') }}"></a>
+        <a
+          href="{{ url('https://docs.google.com/spreadsheets/d/19Tzhxrq7tVBpZ7LhZ5qEL6ehI3om3q6b/edit#gid=1690889270') }}"><img
+            alt="Pneumatiky" class="card-img-top" src="{{ asset('img/pneu.jpg') }}"></a>
         <div class="card-body">
           <h6 class="card-title text-muted text-center">Rezervace výměny pneumatik</h6>
         </div>

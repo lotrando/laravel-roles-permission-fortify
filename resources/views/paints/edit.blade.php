@@ -20,7 +20,7 @@
                     {{ $paint->department->department_code ?? ' ' }} -
                     {{ $paint->department->department_name ??
                         'Choose
-                    									department ...' }}
+                                                                                                                                                                                                                                                                                                                                                                                            									department ...' }}
                   </option>
                   @foreach ($departments as $department)
                     <option value="{{ $department->id }}">{{ $department->department_code }} -
@@ -66,7 +66,7 @@
                 </span>
               @enderror
             </div>
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <label for="doors" class="form-label">{{ __('Doors') }}</label>
               <input type="text" class="form-control @error('doors') is-invalid @enderror" id="doors"
                 name="doors" value="{{ $paint->doors }}">
@@ -75,7 +75,7 @@
                   {{ $message }}
                 </span>
               @enderror
-            </div>
+            </div> --}}
             <div class="mb-3">
               <label for="specials" class="form-label">{{ __('Specials') }}</label>
               <input type="text" class="form-control @error('specials') is-invalid @enderror" id="specials"
@@ -87,26 +87,29 @@
               @enderror
             </div>
             <div class="mb-3">
-              <label for="status" class="form-label">{{ __('Status') }}</label>
-              <select type="text" class="form-control @error('status') is-invalid @enderror" id="status"
-                name="status">
-                <option value="{{ $paint->status ?? 'Vloženo' }}">
-                  {{ $paint->status ?? 'Vloženo' }}
-                </option>
-                @can('is-admin')
-                  <option value="Vloženo">Vloženo</option>
-                  <option value="Schváleno">Schváleno</option>
-                @endcan
-              </select>
-              @error('status')
-                <span class="invalid-feedback" role="alert">
-                  {{ $message }}
-                </span>
-              @enderror
-            </div>
-            <input type="hidden" class="form-control" name="user_id" value="{{ $paint->user->id }}">
-            <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
-            <a class="btn btn-secondary" href="{{ url()->previous() }}">{{ __('Back') }}</a>
+              <input type="hidden" name="status" value="{{ $paint->status }}" />
+              @can('is-admin')
+                <div class="mb-3">
+                  <label for="status" class="form-label">{{ __('Status') }} - <span class="text-danger"></span></label>
+                  <select type="text" class="form-control @error('status') is-invalid @enderror" id="status"
+                    name="status">
+                    <option value="{{ $paint->status ?? 'Vloženo' }}">
+                      {{ $paint->status ?? 'Vloženo' }}
+                    </option>
+
+                    <option value="Vloženo">Vloženo</option>
+                    <option value="Schváleno">Schváleno</option>
+                  </select>
+                  @error('status')
+                    <span class="invalid-feedback" role="alert">
+                      {{ $message }}
+                    </span>
+                  @enderror
+                </div>
+              @endcan
+              <input type="hidden" class="form-control" name="user_id" value="{{ $paint->user->id }}">
+              <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
+              <a class="btn btn-secondary" href="{{ url()->previous() }}">{{ __('Back') }}</a>
           </form>
         </div>
       </div>

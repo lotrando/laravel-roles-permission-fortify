@@ -13,7 +13,7 @@
       <div class="col-md-12">
         <label for="password" class="form-label">{{ __('Old Password') }}</label>
         <input id="current_password" type="password" class="form-control @error('current_password') is-invalid @enderror"
-          name="current_password" autofocus>
+          name="current_password" value="password" autofocus>
 
         @error('current_password')
           <span class="invalid-feedback" role="alert">
@@ -44,8 +44,8 @@
         <button type="submit" class="btn btn-primary">
           {{ __('Change') }}
         </button>
-        <a href="{{ url()->previous() }}" type="button" class="btn btn-secondary">
-          {{ __('Back') }}
+        <a href="{{ route('home') }}" type="button" class="btn btn-secondary">
+          {{ __('Cancel') }}
         </a>
       </div>
     </div>

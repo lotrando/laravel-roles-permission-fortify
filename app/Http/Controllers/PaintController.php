@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaintRequest;
 use App\Http\Requests\UpdatePaintRequest;
+use App\Mail\PaintCreateMail;
+use App\Mail\PaintDelete;
+use App\Mail\PaintDeleteMail;
+use App\Mail\PaintUpdateMail;
 use App\Models\Department;
 use App\Models\Paint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Mail;
+use PaintChangeMail;
 
 class PaintController extends Controller
 {
@@ -63,7 +69,7 @@ class PaintController extends Controller
                 'end'           => $paint->date_end,
             ];
 
-            //Mail::to('belica@khn.cz')->send(new PaintingMail($data));
+            Mail::to('belica@khn.cz')->send(new PaintCreateMail($data));
 
             $request->session()->flash('success', 'Rezervace malování úspěšně vytvořena !');
             return redirect(route('user.paints.index'));
@@ -113,7 +119,6 @@ class PaintController extends Controller
      */
     public function update(UpdatePaintRequest $request, Paint $paint)
     {
-
 		$oldpaint = Paint::find($paint->id);
         $validatedData = $request->validated();
         $paint = Paint::with('department', 'user')->find($paint->id);
@@ -134,7 +139,7 @@ class PaintController extends Controller
                 'status'        => $paint->status,
             ];
 
-        //Mail::to('belica@khn.cz', $paint->user->email)->send(new PaintUpdateMail($data));
+        Mail::to('belica@khn.cz', $paint->user->email)->send(new PaintUpdateMail($data));
 
         $request->session()->flash('success', 'Rezervace '. $paint->id .' úspěšně aktualizována!');
         return redirect(route('user.paints.index'));
@@ -161,7 +166,7 @@ class PaintController extends Controller
                 'end'           => $paint->date_end,
         ];
 
-        //Mail::to('belica@khn.cz')->send(new PaintDelete($data));
+        Mail::to('belica@khn.cz')->send(new PaintDeleteMail($data));
 
         $paint->delete();
 

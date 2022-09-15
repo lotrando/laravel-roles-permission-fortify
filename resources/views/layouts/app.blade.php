@@ -76,16 +76,15 @@
                 {{ Auth::user()->pernum . ' - ' . Auth::user()->user_name }}
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                {{-- Button trigger modal --}}
-                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logout">
-                  {{ __('Logout') }}
-                </button>
                 <a href="{{ route('profile.update') }}" class="dropdown-item">
                   {{ __('Change profile') }}
                 </a>
                 <a href="{{ route('passwords.update') }}" class="dropdown-item">
                   {{ __('Change password') }}
                 </a>
+                <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logout">
+                  {{ __('Logout') }}
+                </button>
                 {{-- <a href="{{ route('two-factor-auth') }}" class="dropdown-item">
                   {{ __('Two Factor Auth') }}
                 </a> --}}

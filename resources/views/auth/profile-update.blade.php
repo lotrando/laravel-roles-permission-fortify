@@ -6,7 +6,7 @@
       {{ __('Profile information updated') }}
     </div>
   @endif
-  <div class="alert alert-warning" role="alert">
+  <div class="alert alert-warning text-center" role="alert">
     {{ __('Changing your email address will require you to re-verify your new address!') }}
   </div>
   <form method="POST" action="{{ route('user-profile-information.update') }}">
